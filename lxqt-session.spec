@@ -6,7 +6,7 @@ Version: 0.8.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 3
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -18,6 +18,7 @@ BuildRequires: cmake(lxqt-qt5)
 BuildRequires: qt5-devel
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
+Requires:	xdg-utils
 
 %description
 Session manager for the LXQt desktop
@@ -28,7 +29,7 @@ Session manager for the LXQt desktop
 %else
 %setup -q
 %endif
-%cmake -DUSE_QT5:BOOL=ON
+%cmake -DUSE_QT5:BOOL=ON -DBUNDLE_XDG_UTILS=No
 
 %build
 %make -C build
