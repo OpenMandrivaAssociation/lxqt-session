@@ -40,7 +40,6 @@ Session manager for the LXQt desktop
 %files
 %{_bindir}/lxqt-session
 %{_bindir}/lxqt-config-session
-%{_libdir}/lxqt-xdg-tools
 %{_datadir}/applications/lxqt-config-session.desktop
 %{_datadir}/lxqt-qt5/translations/lxqt-session
 %{_datadir}/lxqt-qt5/translations/lxqt-config-session
