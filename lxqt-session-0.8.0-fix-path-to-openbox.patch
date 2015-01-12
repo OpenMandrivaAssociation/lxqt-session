@@ -1,0 +1,12 @@
+diff -Naur lxqt-session-0.8.0/lxqt-config-session/basicsettings.cpp lxqt-session-0.8.0.tpg/lxqt-config-session/basicsettings.cpp
+--- lxqt-session-0.8.0/lxqt-config-session/basicsettings.cpp	2014-10-10 17:28:04.000000000 +0000
++++ lxqt-session-0.8.0.tpg/lxqt-config-session/basicsettings.cpp	2015-01-12 22:36:37.752681601 +0000
+@@ -69,7 +69,7 @@
+         knownWMs << wm.command;
+     }
+ 
+-    QString wm = m_settings->value("window_manager", "openbox").toString();
++    QString wm = m_settings->value("window_manager", "/usr/bin/openbox").toString();
+     SessionConfigWindow::handleCfgComboBox(ui->wmComboBox, knownWMs, wm);
+     m_moduleModel->reset();
+ 

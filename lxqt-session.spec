@@ -6,13 +6,14 @@ Version: 0.8.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 4
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
+Patch0: lxqt-session-0.8.0-fix-path-to-openbox.patch
 BuildRequires: cmake
 BuildRequires: cmake(lxqt-qt5)
 BuildRequires: qt5-devel
@@ -29,6 +30,7 @@ Session manager for the LXQt desktop
 %else
 %setup -q
 %endif
+%apply_patches
 %cmake -DUSE_QT5:BOOL=ON -DBUNDLE_XDG_UTILS=No
 
 %build
