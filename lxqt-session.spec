@@ -6,7 +6,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 4
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -48,10 +48,11 @@ for name in config-session hibernate lockscreen logout reboot shutdown suspend; 
     --remove-only-show-in=LXQt --add-only-show-in=X-LXQt %{buildroot}%{_datadir}/applications/lxqt-${name}.desktop
 done
 
-%files
+%find_lang %{name} --with-qt
+%find_lang lxqt-config-session --with-qt
+
+%files -f %{name}.lang -f lxqt-config-session.lang
 %{_bindir}/lxqt-session
 %{_bindir}/lxqt-leave
 %{_bindir}/lxqt-config-session
 %{_datadir}/applications/lxqt-*.desktop
-%{_datadir}/lxqt/translations/lxqt-session
-%{_datadir}/lxqt/translations/lxqt-config-session
