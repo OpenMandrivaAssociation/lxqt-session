@@ -56,3 +56,4 @@ done
 %{_bindir}/lxqt-leave
 %{_bindir}/lxqt-config-session
 %{_datadir}/applications/lxqt-*.desktop
+%{_datadir}/lxqt/translations/lxqt-session/lxqt-session_*.qm
