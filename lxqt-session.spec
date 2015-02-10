@@ -14,11 +14,11 @@ URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
-BuildRequires: cmake(lxqt)
+BuildRequires: pkgconfig(lxqt)
 BuildRequires: qt5-devel
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
-BuildRequires:	desktop-file-utils
+BuildRequires: desktop-file-utils
 Requires:	xdg-utils
 %rename		razorqt-session
 
