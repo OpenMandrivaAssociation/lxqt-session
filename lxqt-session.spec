@@ -6,7 +6,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 5
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -18,7 +18,6 @@ BuildRequires: pkgconfig(lxqt)
 BuildRequires: qt5-devel
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5X11Extras)
-BuildRequires: desktop-file-utils
 Requires:	xdg-utils
 %rename		razorqt-session
 
@@ -40,13 +39,6 @@ Session manager for the LXQt desktop
 %install
 %makeinstall_std -C build
 
-# (tpg) fix for E: invalid-desktopfile (Badness: 1) /usr/share/applications/lxqt-shutdown.desktop value "LXQt;" 
-# for key "OnlyShowIn" in group "Desktop Entry" contains an unregistered value "LXQt"; 
-# values extending the format should start with "X-
-for name in config-session hibernate lockscreen logout reboot shutdown suspend; do 
-	desktop-file-edit --remove-category=LXQt --add-category=X-LXQt \
-    --remove-only-show-in=LXQt --add-only-show-in=X-LXQt %{buildroot}%{_datadir}/applications/lxqt-${name}.desktop
-done
 
 %find_lang %{name} --with-qt
 %find_lang lxqt-config-session --with-qt
