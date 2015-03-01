@@ -1,0 +1,74 @@
+diff -Naur lxqt-session-0.9.0/lxqtleave/resources/lxqt-hibernate.desktop.in lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-hibernate.desktop.in
+--- lxqt-session-0.9.0/lxqtleave/resources/lxqt-hibernate.desktop.in	2015-01-29 03:54:24.000000000 +0000
++++ lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-hibernate.desktop.in	2015-03-01 22:58:07.452453245 +0000
+@@ -5,7 +5,7 @@
+ Comment=hibernate the machine
+ Exec=lxqt-leave --hibernate
+ Icon=system-suspend-hibernate
+-Categories=LXQt;X-Leave
+-OnlyShowIn=LXQt
++Categories=LXQt;X-Leave;
++OnlyShowIn=LXQt;
+ 
+ #TRANSLATIONS_DIR=../translations
+diff -Naur lxqt-session-0.9.0/lxqtleave/resources/lxqt-lockscreen.desktop.in lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-lockscreen.desktop.in
+--- lxqt-session-0.9.0/lxqtleave/resources/lxqt-lockscreen.desktop.in	2015-01-29 03:54:24.000000000 +0000
++++ lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-lockscreen.desktop.in	2015-03-01 22:58:12.377584423 +0000
+@@ -5,7 +5,7 @@
+ Comment=Lock the current session
+ Exec=lxqt-leave --lockscreen
+ Icon=system-lock-screen
+-Categories=LXQt;Screensaver
++Categories=LXQt;Screensaver;
+ OnlyShowIn=LXQt;
+ 
+ #TRANSLATIONS_DIR=../translations
+diff -Naur lxqt-session-0.9.0/lxqtleave/resources/lxqt-logout.desktop.in lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-logout.desktop.in
+--- lxqt-session-0.9.0/lxqtleave/resources/lxqt-logout.desktop.in	2015-01-29 03:54:24.000000000 +0000
++++ lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-logout.desktop.in	2015-03-01 22:58:17.337716529 +0000
+@@ -5,7 +5,7 @@
+ Comment=Logout from the current session
+ Exec=lxqt-leave --logout
+ Icon=system-log-out
+-Categories=LXQt;X-Leave
++Categories=LXQt;X-Leave;
+ OnlyShowIn=LXQt;
+ 
+ #TRANSLATIONS_DIR=../translations
+diff -Naur lxqt-session-0.9.0/lxqtleave/resources/lxqt-reboot.desktop.in lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-reboot.desktop.in
+--- lxqt-session-0.9.0/lxqtleave/resources/lxqt-reboot.desktop.in	2015-01-29 03:54:24.000000000 +0000
++++ lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-reboot.desktop.in	2015-03-01 22:58:20.938812436 +0000
+@@ -5,7 +5,7 @@
+ Comment=reboot the machine
+ Exec=lxqt-leave --reboot
+ Icon=system-reboot
+-Categories=LXQt;X-Leave
++Categories=LXQt;X-Leave;
+ OnlyShowIn=LXQt;
+ 
+ #TRANSLATIONS_DIR=../translations
+diff -Naur lxqt-session-0.9.0/lxqtleave/resources/lxqt-shutdown.desktop.in lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-shutdown.desktop.in
+--- lxqt-session-0.9.0/lxqtleave/resources/lxqt-shutdown.desktop.in	2015-01-29 03:54:24.000000000 +0000
++++ lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-shutdown.desktop.in	2015-03-01 22:58:24.985920220 +0000
+@@ -5,7 +5,7 @@
+ Comment=shutdown the machine
+ Exec=lxqt-leave --shutdown
+ Icon=system-shutdown
+-Categories=LXQt;X-Leave
++Categories=LXQt;X-Leave;
+ OnlyShowIn=LXQt;
+ 
+ #TRANSLATIONS_DIR=../translations
+diff -Naur lxqt-session-0.9.0/lxqtleave/resources/lxqt-suspend.desktop.in lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-suspend.desktop.in
+--- lxqt-session-0.9.0/lxqtleave/resources/lxqt-suspend.desktop.in	2015-01-29 03:54:24.000000000 +0000
++++ lxqt-session-0.9.0.tpg/lxqtleave/resources/lxqt-suspend.desktop.in	2015-03-01 22:58:30.243060227 +0000
+@@ -5,7 +5,7 @@
+ Comment=suspend the machine
+ Exec=lxqt-leave --suspend
+ Icon=system-suspend
+-Categories=LXQt;X-Leave
+-OnlyShowIn=LXQt
++Categories=LXQt;X-Leave;
++OnlyShowIn=LXQt;
+ 
+ #TRANSLATIONS_DIR=../translations
