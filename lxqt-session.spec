@@ -6,7 +6,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 6
+Release: 7
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -15,10 +15,13 @@ License: GPL
 Group: Graphical desktop/KDE
 Patch0: lxqt-session-0.9.0-fix-desktop-files.patch
 BuildRequires: cmake
-BuildRequires: pkgconfig(lxqt)
-BuildRequires: qt5-devel
-BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(KF5WindowSystem)
+BuildRequires: cmake(Qt5Widgets)
+BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
+BuildRequires: cmake(Qt5LinguistTools)
+BuildRequires: cmake(Qt5Xdg)
+BuildRequires: cmake(lxqt)
 Requires:	xdg-utils
 %rename		razorqt-session
 
@@ -32,7 +35,7 @@ Session manager for the LXQt desktop
 %setup -q
 %endif
 %apply_patches
-%cmake -DUSE_QT5:BOOL=ON -DBUNDLE_XDG_UTILS=No
+%cmake
 
 %build
 %make -C build
