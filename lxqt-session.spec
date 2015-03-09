@@ -15,12 +15,13 @@ License: GPL
 Group: Graphical desktop/KDE
 Patch0: lxqt-session-0.9.0-fix-desktop-files.patch
 BuildRequires: cmake
+BuildRequires: qmake5
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(Qt5Xdg)
+BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(lxqt)
 Requires:	xdg-utils
 %rename		razorqt-session
