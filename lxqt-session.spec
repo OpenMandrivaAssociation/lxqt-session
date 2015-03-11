@@ -6,7 +6,7 @@ Version: 0.9.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 7
+Release: 8
 Source0: http://lxqt.org/downloads/lxqt/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -23,6 +23,8 @@ BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(lxqt)
+BuildRequires: pkgconfig(x11)
+BuildRequires: pkgconfig(xcb)
 Requires:	xdg-utils
 %rename		razorqt-session
 
@@ -36,7 +38,7 @@ Session manager for the LXQt desktop
 %setup -q
 %endif
 %apply_patches
-%cmake
+%cmake_qt5
 
 %build
 %make -C build
