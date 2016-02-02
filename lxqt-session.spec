@@ -6,7 +6,7 @@ Version: 0.10.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 3
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -39,7 +39,7 @@ Session manager for the LXQt desktop
 %apply_patches
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^Categories=.*,&;,"
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
-%cmake_qt5
+%cmake_qt5 -DBUNDLE_XDG_UTILS=NO
 
 %build
 %make -C build
