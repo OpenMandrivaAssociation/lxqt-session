@@ -6,7 +6,7 @@ Version: 0.10.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 5
+Release: 6
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
