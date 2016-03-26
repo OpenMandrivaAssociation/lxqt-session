@@ -6,7 +6,7 @@ Version: 0.10.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 7
+Release: 8
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -15,6 +15,7 @@ License: GPL
 Group: Graphical desktop/KDE
 BuildRequires: cmake
 BuildRequires: qmake5
+BuildRequires: ninja
 BuildRequires: cmake(KF5WindowSystem)
 BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
@@ -24,11 +25,11 @@ BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(lxqt)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
-Requires:	xdg-utils
-%rename		razorqt-session
+Requires: xdg-utils
+%rename razorqt-session
 
 %description
-Session manager for the LXQt desktop
+Session manager for the LXQt desktop.
 
 %prep
 %if %git
@@ -39,14 +40,24 @@ Session manager for the LXQt desktop
 %apply_patches
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^Categories=.*,&;,"
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
-%cmake_qt5 -DBUNDLE_XDG_UTILS=NO
+
+%cmake_qt5 -DBUNDLE_XDG_UTILS=NO -G Ninja
 
 %build
-%make -C build
+# Need to be in a UTF-8 locale so grep (used by the desktop file
+# translation generator) doesn't scream about translations containing
+# "binary" (non-ascii) characters
+export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
+%ninja -C build
 
 %install
-%makeinstall_std -C build
-
+# Need to be in a UTF-8 locale so grep (used by the desktop file
+# translation generator) doesn't scream about translations containing
+# "binary" (non-ascii) characters
+export LANG=en_US.utf-8
+export LC_ALL=en_US.utf-8
+%ninja_install -C build
 
 %find_lang %{name} --with-qt
 %find_lang lxqt-leave --with-qt
