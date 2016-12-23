@@ -23,8 +23,10 @@ BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(qt5xdg)
 BuildRequires: cmake(lxqt)
+BuildRequires: cmake(lxqt-build-tools)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
+BuildRequires: xdg-user-dirs
 Requires: xdg-utils
 %rename razorqt-session
 
