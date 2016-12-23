@@ -26,6 +26,7 @@ BuildRequires: cmake(lxqt)
 BuildRequires: cmake(lxqt-build-tools)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
+BuildRequires: pkgconfig(libudev)
 BuildRequires: xdg-user-dirs
 Requires: xdg-utils
 %rename razorqt-session
