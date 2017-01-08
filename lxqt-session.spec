@@ -1,12 +1,12 @@
 %define git 0
 
 Name: lxqt-session
-Version: 0.11.0
+Version: 0.11.1
 %if %git
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 1
 Source0: https://github.com/lxde/%{name}/archive/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
