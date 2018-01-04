@@ -6,7 +6,7 @@ Version: 0.12.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -30,8 +30,13 @@ BuildRequires: pkgconfig(libudev)
 BuildRequires: xdg-user-dirs
 Requires: xdg-utils
 Requires: lxqt-l10n
+Requires: xdg-user-dirs
+# workaround for missing icons in desktop files on lxqt desktop
+Requires: sed
+Requires: breeze
+Requires: breeze-icons
 %rename razorqt-session
-Obsoletes: lxqt-common
+%rename lxqt-common
 
 %description
 Session manager for the LXQt desktop.
@@ -64,6 +69,9 @@ export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
 %ninja_install -C build
 
+# (tpg) we do not have any KDM in 2015.0 or newer
+rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
+
 %files
 %{_bindir}/startlxqt
 %{_bindir}/lxqt-session
@@ -71,7 +79,6 @@ export LC_ALL=en_US.utf-8
 %{_bindir}/lxqt-config-session
 %{_datadir}/applications/lxqt-*.desktop
 %{_mandir}/man1/*
-%{_datadir}/kdm/sessions/lxqt.desktop
 %{_datadir}/xsessions/lxqt.desktop
 %dir %{_sysconfdir}/xdg/qt5
 %{_sysconfdir}/xdg/qt5/autostart
