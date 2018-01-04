@@ -1,0 +1,95 @@
+diff -Naur lxqt-session-0.12.0/startlxqt.in lxqt-session-0.12.0.tpg/startlxqt.in
+--- lxqt-session-0.12.0/startlxqt.in	2017-10-21 19:39:00.000000000 +0000
++++ lxqt-session-0.12.0.tpg/startlxqt.in	2018-01-04 18:16:22.505074104 +0000
+@@ -6,6 +6,14 @@
+     [ "$str" = "$substr" -o -z "${str##$substr:*}" -o -z "${str##*:$substr:*}" -o -z "${str%%*:$substr}" ]
+ }
+ 
++# (tpg) create localized user dirs
++if which xdg-user-dirs-update >/dev/null 2>&1; then
++    xdg-user-dirs-update
++fi
++
++# (cb) remove the ksycoca cache which could possibly have been invalid
++rm -f $HOME/.cache/ksycoca*
++
+ if [ -z "$XDG_DATA_HOME" ]; then
+     export XDG_DATA_HOME="$HOME/.local/share"
+ fi
+@@ -23,6 +31,7 @@
+ fi
+ export XDG_DATA_DIRS
+ 
++XDG_CONFIG_DIRS=/etc/xdg
+ if [ -z "$XDG_CONFIG_DIRS" ]; then
+     export XDG_CONFIG_DIRS="@LXQT_ETC_XDG_DIR@"
+ else
+@@ -95,5 +104,68 @@
+ 
+ export XDG_CURRENT_DESKTOP="LXQt"
+ 
++# (tpg) copy default settings because LxQt cannot read them from /etc
++if test "x$XDG_CONFIG_HOME" = "x"
++then
++    BASEDIR="$HOME/.config"
++else
++    BASEDIR="$XDG_CONFIG_HOME"
++fi
++
++if [ ! -d $BASEDIR/lxqt ]; then
++
++    for i in lxqt pcmanfm-qt; do
++	mkdir -p $BASEDIR/$i
++	cp -af /etc/xdg/qt5/$i $BASEDIR ;
++    done
++fi
++
++if [ ! -e $XDG_CONFIG_HOME/lxqt.firstboot ]; then
++    #(tpg) add special icons on DESKTOP
++    USER_DESKTOP=`xdg-user-dir DESKTOP`
++
++    if [ ! -e $USER_DESKTOP/om-welcome.desktop ]; then
++	if [ -e /usr/share/applications/om-welcome.desktop ]; then
++	    cp -f /usr/share/applications/om-welcome.desktop $USER_DESKTOP 2> /dev/null
++	    # (tpg) workaround for LxQt not displaying icons for desktop files on LxQt desktop
++	    sed -i -e "s#^Icon=.*#Icon=/usr/share/icons/openmandriva.svg#g" $USER_DESKTOP/om-welcome.desktop
++	    chmod +x $USER_DESKTOP/om-welcome.desktop
++	fi
++    fi
++
++    if [ ! -e $USER_DESKTOP/join.desktop ]; then
++	cp -f /usr/share/applications/join.desktop $USER_DESKTOP 2> /dev/null
++	# (tpg) workaround for LxQt not displaying icons for desktop files on LxQt desktop
++	sed -i -e "s#^Icon=.*#Icon=/usr/share/icons/omv-join-now.png#g" $USER_DESKTOP/join.desktop
++	chmod +x $USER_DESKTOP/join.desktop
++    fi
++
++    if [ ! -e $USER_DESKTOP/donate.desktop ]; then
++	cp -f /usr/share/applications/donate.desktop $USER_DESKTOP 2> /dev/null
++        # (tpg) workaround for LxQt not displaying icons for desktop files on LxQt desktop
++	sed -i -e "s#^Icon=.*#Icon=/usr/share/icons/omv-donate.png#g" $USER_DESKTOP/donate.desktop
++	chmod +x $USER_DESKTOP/donate.desktop
++    fi
++
++    if [ ! -e $USER_DESKTOP/calamares.desktop ]; then
++	if [ -e /usr/share/applications/calamares.desktop ]; then
++	    cp -f /usr/share/applications/calamares.desktop $USER_DESKTOP 2> /dev/null
++	    # (tpg) workaround for LxQt not displaying icons for desktop files on LxQt desktop
++	    sed -i -e "s#^Icon=.*#Icon=/usr/share/icons/openmandriva-install.svg#g" $USER_DESKTOP/calamares.desktop
++	    chmod +x $USER_DESKTOP/calamares.desktop
++	fi
++    fi
++
++    touch $XDG_CONFIG_HOME/lxqt.firstboot
++
++fi
++
++# workaround for openbox not being start on first boot
++if cat $BASEDIR/lxqt/session.conf | grep -w window_manager=openbox > /dev/null 2>&1; then
++    if ! pgrep "openbox" > /dev/null 2>&1; then
++	exec /usr/bin/openbox &
++    fi
++fi
++
+ # Start the LXQt session
+ exec lxqt-session

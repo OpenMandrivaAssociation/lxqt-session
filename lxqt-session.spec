@@ -13,6 +13,9 @@ Summary: Session manager for the LXQt desktop
 URL: http://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
+Patch0: lxqt-session-0.12.0-omv-settings.patch
+Patch1: lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
+Patch2: lxqt-session-0.8.0-fix-path-to-openbox.patch
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: ninja

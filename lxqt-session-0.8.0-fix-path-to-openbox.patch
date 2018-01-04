@@ -1,12 +1,12 @@
-diff -Naur lxqt-session-0.8.0/lxqt-config-session/basicsettings.cpp lxqt-session-0.8.0.tpg/lxqt-config-session/basicsettings.cpp
---- lxqt-session-0.8.0/lxqt-config-session/basicsettings.cpp	2014-10-10 17:28:04.000000000 +0000
-+++ lxqt-session-0.8.0.tpg/lxqt-config-session/basicsettings.cpp	2015-01-12 22:36:37.752681601 +0000
-@@ -69,7 +69,7 @@
-         knownWMs << wm.command;
-     }
+diff -Naur lxqt-session-0.12.0/lxqt-config-session/basicsettings.cpp lxqt-session-0.12.0.tpg/lxqt-config-session/basicsettings.cpp
+--- lxqt-session-0.12.0/lxqt-config-session/basicsettings.cpp	2017-10-21 19:39:00.000000000 +0000
++++ lxqt-session-0.12.0.tpg/lxqt-config-session/basicsettings.cpp	2018-01-04 17:58:20.966032887 +0000
+@@ -35,7 +35,7 @@
+ static const QLatin1String windowManagerKey("window_manager");
+ static const QLatin1String leaveConfirmationKey("leave_confirmation");
+ static const QLatin1String lockBeforePowerActionsKey("lock_screen_before_power_actions");
+-static const QLatin1String openboxValue("openbox");
++static const QLatin1String openboxValue("/usr/bin/openbox");
  
--    QString wm = m_settings->value("window_manager", "openbox").toString();
-+    QString wm = m_settings->value("window_manager", "/usr/bin/openbox").toString();
-     SessionConfigWindow::handleCfgComboBox(ui->wmComboBox, knownWMs, wm);
-     m_moduleModel->reset();
- 
+ BasicSettings::BasicSettings(LXQt::Settings *settings, QWidget *parent) :
+     QWidget(parent),

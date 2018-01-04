@@ -1,0 +1,38 @@
+diff -Naur lxqt-session-0.12.0/config/lxqt.conf lxqt-session-0.12.0.tpg/config/lxqt.conf
+--- lxqt-session-0.12.0/config/lxqt.conf	2017-10-21 19:39:00.000000000 +0000
++++ lxqt-session-0.12.0.tpg/config/lxqt.conf	2018-01-04 17:54:26.392023947 +0000
+@@ -1,11 +1,14 @@
+ [General]
+-theme=frost
+-icon_theme=oxygen
++theme=kde-plasma
++icon_theme=breeze
+ single_click_activate=false
+ tool_button_style=ToolButtonTextBesideIcon
+ 
++[Mouse]
++cursor_theme=breeze_cursors
++
+ [Qt]
+ font="Sans,11,-1,5,50,0,0,0,0,0"
+ doubleClickInterval=400
+-style=Fusion
++style=Breeze
+ wheelScrollLines=3
+diff -Naur lxqt-session-0.12.0/config/session.conf lxqt-session-0.12.0.tpg/config/session.conf
+--- lxqt-session-0.12.0/config/session.conf	2017-10-21 19:39:00.000000000 +0000
++++ lxqt-session-0.12.0.tpg/config/session.conf	2018-01-04 17:55:13.158025729 +0000
+@@ -5,10 +5,12 @@
+ [Environment]
+ GTK_CSD=0
+ GTK_OVERLAY_SCROLLING=0
++BROWSER=qupzilla
++TERM=qterminal
+ 
+ [Mouse]
+ cursor_size=18
+-cursor_theme=whiteglass
++cursor_theme=breeze_cursors
+ acc_factor=20
+ acc_threshold=10
+ left_handed=false
