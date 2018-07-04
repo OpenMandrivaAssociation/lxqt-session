@@ -1,7 +1,7 @@
-diff -Naur lxqt-session-0.12.0/startlxqt.in lxqt-session-0.12.0.tpg/startlxqt.in
---- lxqt-session-0.12.0/startlxqt.in	2017-10-21 19:39:00.000000000 +0000
-+++ lxqt-session-0.12.0.tpg/startlxqt.in	2018-01-04 18:16:22.505074104 +0000
-@@ -6,6 +6,14 @@
+diff -up lxqt-session-0.13.0/startlxqt.in.0001~ lxqt-session-0.13.0/startlxqt.in
+--- lxqt-session-0.13.0/startlxqt.in.0001~	2018-05-21 20:58:27.000000000 +0200
++++ lxqt-session-0.13.0/startlxqt.in	2018-07-04 21:26:12.069982126 +0200
+@@ -6,6 +6,14 @@ contains()
      [ "$str" = "$substr" -o -z "${str##$substr:*}" -o -z "${str##*:$substr:*}" -o -z "${str%%*:$substr}" ]
  }
  
@@ -16,15 +16,15 @@ diff -Naur lxqt-session-0.12.0/startlxqt.in lxqt-session-0.12.0.tpg/startlxqt.in
  if [ -z "$XDG_DATA_HOME" ]; then
      export XDG_DATA_HOME="$HOME/.local/share"
  fi
-@@ -23,6 +31,7 @@
+@@ -23,6 +31,7 @@ else
  fi
  export XDG_DATA_DIRS
  
-+XDG_CONFIG_DIRS=/etc/xdg
++export XDG_CONFIG_DIRS=/etc/xdg
  if [ -z "$XDG_CONFIG_DIRS" ]; then
-     export XDG_CONFIG_DIRS="@LXQT_ETC_XDG_DIR@"
+     export XDG_CONFIG_DIRS="@PREDEF_XDG_CONFIG_DIRS@"
  else
-@@ -95,5 +104,68 @@
+@@ -95,5 +104,68 @@ export XDG_MENU_PREFIX="lxqt-"
  
  export XDG_CURRENT_DESKTOP="LXQt"
  

@@ -1,12 +1,12 @@
 %define git 0
 
 Name: lxqt-session
-Version: 0.12.0
+Version: 0.13.0
 %if %git
-Release: 0.%git.1
+Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 1
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -85,4 +85,4 @@ rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 %{_datadir}/xsessions/lxqt.desktop
 %{_sysconfdir}/xdg/autostart
 %{_sysconfdir}/xdg/openbox
-%{_sysconfdir}/xdg/lxqt
+%{_datadir}/lxqt/*.conf
