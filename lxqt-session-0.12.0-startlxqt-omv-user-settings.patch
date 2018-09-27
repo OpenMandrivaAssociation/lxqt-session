@@ -40,13 +40,13 @@ diff -up lxqt-session-0.13.0/startlxqt.in.0001~ lxqt-session-0.13.0/startlxqt.in
 +
 +    for i in lxqt pcmanfm-qt; do
 +	mkdir -p $BASEDIR/$i
-+	cp -af /etc/xdg/$i $BASEDIR ;
++	cp -af /usr/share/$i $BASEDIR ;
 +    done
 +fi
 +
 +if [ ! -e $XDG_CONFIG_HOME/lxqt.firstboot ]; then
 +    #(tpg) add special icons on DESKTOP
-+    USER_DESKTOP=`xdg-user-dir DESKTOP`
++    USER_DESKTOP="$(xdg-user-dir DESKTOP)"
 +
 +    if [ ! -e $USER_DESKTOP/om-welcome.desktop ]; then
 +	if [ -e /usr/share/applications/om-welcome.desktop ]; then
