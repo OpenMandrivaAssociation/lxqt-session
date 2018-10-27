@@ -6,7 +6,7 @@ Version: 0.13.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 3
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -51,6 +51,7 @@ Session manager for the LXQt desktop.
 %setup -q
 %endif
 %apply_patches
+
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^Categories=.*,&;,"
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
 
