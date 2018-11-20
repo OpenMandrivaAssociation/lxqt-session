@@ -3,10 +3,10 @@
 Name: lxqt-session
 Version: 0.13.0
 %if %git
-Release: 1.%git.1
+Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 5
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -34,6 +34,8 @@ BuildRequires: xdg-user-dirs
 Requires: xdg-utils
 Requires: lxqt-l10n
 Requires: xdg-user-dirs
+# dbus-launch is used by startlxqt
+Requires: dbus-x11
 # workaround for missing icons in desktop files on lxqt desktop
 Requires: sed
 Requires: breeze
