@@ -1,10 +1,10 @@
-diff -Naur lxqt-session-0.12.0/lxqt-config-session/basicsettings.cpp lxqt-session-0.12.0.tpg/lxqt-config-session/basicsettings.cpp
---- lxqt-session-0.12.0/lxqt-config-session/basicsettings.cpp	2017-10-21 19:39:00.000000000 +0000
-+++ lxqt-session-0.12.0.tpg/lxqt-config-session/basicsettings.cpp	2018-01-04 17:58:20.966032887 +0000
-@@ -35,7 +35,7 @@
- static const QLatin1String windowManagerKey("window_manager");
+diff -up lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp.0002~ lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp
+--- lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp.0002~	2019-01-30 16:36:02.423738232 +0100
++++ lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp	2019-01-30 16:37:13.910415266 +0100
+@@ -36,7 +36,7 @@ static const QLatin1String windowManager
  static const QLatin1String leaveConfirmationKey("leave_confirmation");
  static const QLatin1String lockBeforePowerActionsKey("lock_screen_before_power_actions");
+ static const QLatin1String powerActionsAfterLockDelayKey("power_actions_after_lock_delay");
 -static const QLatin1String openboxValue("openbox");
 +static const QLatin1String openboxValue("/usr/bin/openbox");
  

@@ -1,12 +1,12 @@
 %define git 0
 
 Name: lxqt-session
-Version: 0.13.0
+Version: 0.14.0
 %if %git
-Release: 0.%git.1
+Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 5
+Release: 1
 Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -32,7 +32,6 @@ BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(libudev)
 BuildRequires: xdg-user-dirs
 Requires: xdg-utils
-Requires: lxqt-l10n
 Requires: xdg-user-dirs
 # dbus-launch is used by startlxqt
 Requires: dbus-x11
@@ -78,7 +77,9 @@ export LC_ALL=en_US.utf-8
 # (tpg) we do not have any KDM in 2015.0 or newer
 rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 
-%files
+%find_lang %{name} --with-qt --all-name
+
+%files -f %{name}.lang
 %{_bindir}/startlxqt
 %{_bindir}/lxqt-session
 %{_bindir}/lxqt-leave
