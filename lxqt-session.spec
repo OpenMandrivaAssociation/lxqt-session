@@ -1,7 +1,7 @@
 %define git 0
 
 Name: lxqt-session
-Version: 0.14.0
+Version: 0.14.1
 %if %git
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
