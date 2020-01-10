@@ -51,7 +51,7 @@ Session manager for the LXQt desktop.
 %else
 %setup -q
 %endif
-%apply_patches
+%autopatch -p1
 
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^Categories=.*,&;,"
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
