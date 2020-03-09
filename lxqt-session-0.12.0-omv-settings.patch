@@ -1,6 +1,6 @@
-diff -Naur lxqt-session-0.12.0/config/lxqt.conf lxqt-session-0.12.0.tpg/config/lxqt.conf
---- lxqt-session-0.12.0/config/lxqt.conf	2017-10-21 19:39:00.000000000 +0000
-+++ lxqt-session-0.12.0.tpg/config/lxqt.conf	2018-01-04 17:54:26.392023947 +0000
+diff -Naur lxqt-session-0.14.1/config/lxqt.conf lxqt-session-0.14.1.tpg/config/lxqt.conf
+--- lxqt-session-0.14.1/config/lxqt.conf	2019-02-26 01:22:39.000000000 +0000
++++ lxqt-session-0.14.1.tpg/config/lxqt.conf	2020-03-09 13:01:09.245858057 +0000
 @@ -1,11 +1,14 @@
  [General]
 -theme=frost
@@ -19,14 +19,18 @@ diff -Naur lxqt-session-0.12.0/config/lxqt.conf lxqt-session-0.12.0.tpg/config/l
 -style=Fusion
 +style=Breeze
  wheelScrollLines=3
-diff -Naur lxqt-session-0.12.0/config/session.conf lxqt-session-0.12.0.tpg/config/session.conf
---- lxqt-session-0.12.0/config/session.conf	2017-10-21 19:39:00.000000000 +0000
-+++ lxqt-session-0.12.0.tpg/config/session.conf	2018-01-04 17:55:13.158025729 +0000
-@@ -5,10 +5,12 @@
+diff -Naur lxqt-session-0.14.1/config/session.conf lxqt-session-0.14.1.tpg/config/session.conf
+--- lxqt-session-0.14.1/config/session.conf	2019-02-26 01:22:39.000000000 +0000
++++ lxqt-session-0.14.1.tpg/config/session.conf	2020-03-09 13:03:17.231868443 +0000
+@@ -1,13 +1,16 @@
+ [General]
+ leave_confirmation=true
++window_manager=openbox
+ 
  [Environment]
  GTK_CSD=0
  GTK_OVERLAY_SCROLLING=0
-+BROWSER=qupzilla
++BROWSER=/usr/bin/falkon
 +TERM=qterminal
  
  [Mouse]

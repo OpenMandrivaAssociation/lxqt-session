@@ -1,17 +1,17 @@
-diff -Naur lxqt-session-0.13.0/startlxqt.in lxqt-session-0.13.0.tpg/startlxqt.in
---- lxqt-session-0.13.0/startlxqt.in	2018-05-21 18:58:27.000000000 +0000
-+++ lxqt-session-0.13.0.tpg/startlxqt.in	2018-10-27 22:41:58.294760643 +0000
+diff -Naur lxqt-session-0.14.1/startlxqt.in lxqt-session-0.14.1.tpg/startlxqt.in
+--- lxqt-session-0.14.1/startlxqt.in	2019-02-26 01:22:39.000000000 +0000
++++ lxqt-session-0.14.1.tpg/startlxqt.in	2020-03-09 13:32:23.471010150 +0000
 @@ -6,6 +6,14 @@
      [ "$str" = "$substr" -o -z "${str##$substr:*}" -o -z "${str##*:$substr:*}" -o -z "${str%%*:$substr}" ]
  }
  
 +# (tpg) create localized user dirs
-+if which xdg-user-dirs-update >/dev/null 2>&1; then
++if $(command -v xdg-user-dirs-update); then
 +    xdg-user-dirs-update
 +fi
 +
 +# (cb) remove the ksycoca cache which could possibly have been invalid
-+rm -f $HOME/.cache/ksycoca*
++rm -f $HOME/.cache/ksycoca* ||:
 +
  if [ -z "$XDG_DATA_HOME" ]; then
      export XDG_DATA_HOME="$HOME/.local/share"
@@ -24,7 +24,7 @@ diff -Naur lxqt-session-0.13.0/startlxqt.in lxqt-session-0.13.0.tpg/startlxqt.in
  if [ -z "$XDG_CONFIG_DIRS" ]; then
      export XDG_CONFIG_DIRS="@PREDEF_XDG_CONFIG_DIRS@"
  else
-@@ -95,5 +104,60 @@
+@@ -95,5 +104,62 @@
  
  export XDG_CURRENT_DESKTOP="LXQt"
  
@@ -37,15 +37,17 @@ diff -Naur lxqt-session-0.13.0/startlxqt.in lxqt-session-0.13.0.tpg/startlxqt.in
 +fi
 +
 +if [ ! -d $BASEDIR/lxqt ]; then
++    mkdir -p $BASEDIR/lxqt
++    cp -af /usr/share/lxqt/*.conf $BASEDIR/lxqt
++fi
 +
-+    for i in lxqt pcmanfm-qt; do
-+	mkdir -p $BASEDIR/$i
-+	cp -af /usr/share/$i $BASEDIR ;
-+    done
++if [ ! -d $BASEDIR/pcmanfm-qt ]; then
++    mkdir -p $BASEDIR/pcmanfm-qt/lxqt
++    cp -af /usr/share/pcmanfm-qt/lxqt/*.conf $BASEDIR/pcmanfm-qt/lxqt
 +fi
 +
 +if [ ! -e $XDG_CONFIG_HOME/lxqt.firstboot ]; then
-+    #(tpg) add special icons on DESKTOP
++#(tpg) add special icons on DESKTOP
 +    USER_DESKTOP="$(xdg-user-dir DESKTOP)"
 +
 +    if [ ! -e $USER_DESKTOP/om-welcome.desktop ]; then
