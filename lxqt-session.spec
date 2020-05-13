@@ -1,13 +1,13 @@
 %define git 0
 
 Name: lxqt-session
-Version: 0.14.1
+Version: 0.15.0
 %if %git
-Release: 1.%git.1
+Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
-Source0: https://downloads.lxqt.org/downloads/%{name}/%{version}/%{name}-%{version}.tar.xz
+Release: 1
+Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
 URL: http://lxqt.org/
@@ -90,3 +90,9 @@ rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 %{_sysconfdir}/xdg/autostart
 %{_sysconfdir}/xdg/openbox
 %{_datadir}/lxqt/*.conf
+%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-session/lxqt-config-session_arn.qm
+%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-session/lxqt-config-session_ast.qm
+%lang(arn) %{_datadir}/lxqt/translations/lxqt-leave/lxqt-leave_arn.qm
+%lang(ast) %{_datadir}/lxqt/translations/lxqt-leave/lxqt-leave_ast.qm
+%lang(arn) %{_datadir}/lxqt/translations/lxqt-session/lxqt-session_arn.qm
+%lang(ast) %{_datadir}/lxqt/translations/lxqt-session/lxqt-session_ast.qm
