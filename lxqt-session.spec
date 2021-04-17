@@ -30,6 +30,7 @@ BuildRequires: cmake(lxqt-build-tools)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(libudev)
+BuildRequires: pkgconfig(libprocps)
 BuildRequires: xdg-user-dirs
 Requires: xdg-utils
 Requires: xdg-user-dirs
