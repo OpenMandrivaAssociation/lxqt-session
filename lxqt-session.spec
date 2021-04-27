@@ -6,7 +6,7 @@ Version: 0.17.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -88,7 +88,7 @@ rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 %{_datadir}/applications/lxqt-*.desktop
 %{_mandir}/man1/*
 %{_datadir}/xsessions/lxqt.desktop
-%{_sysconfdir}/xdg/autostart
+%{_sysconfdir}/xdg/autostart/*
 %{_datadir}/lxqt/*.conf
 %lang(arn) %{_datadir}/lxqt/translations/lxqt-config-session/lxqt-config-session_arn.qm
 %lang(ast) %{_datadir}/lxqt/translations/lxqt-config-session/lxqt-config-session_ast.qm
