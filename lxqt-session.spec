@@ -1,9 +1,9 @@
 %define git 0
 
 Name: lxqt-session
-Version: 1.0.1
+Version: 1.1.0
 %if %git
-Release: 0.%git.1
+Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
 Release: 1
@@ -90,9 +90,4 @@ rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 %{_datadir}/xsessions/lxqt.desktop
 %{_sysconfdir}/xdg/autostart/*
 %{_datadir}/lxqt/*.conf
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-config-session/lxqt-config-session_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-config-session/lxqt-config-session_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-leave/lxqt-leave_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-leave/lxqt-leave_ast.qm
-%lang(arn) %{_datadir}/lxqt/translations/lxqt-session/lxqt-session_arn.qm
-%lang(ast) %{_datadir}/lxqt/translations/lxqt-session/lxqt-session_ast.qm
+%dir %{_datadir}/lxqt/translations/*

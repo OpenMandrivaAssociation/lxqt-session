@@ -1,27 +1,16 @@
-diff -Naur lxqt-session-0.14.1/config/lxqt.conf lxqt-session-0.14.1.tpg/config/lxqt.conf
---- lxqt-session-0.14.1/config/lxqt.conf	2019-02-26 01:22:39.000000000 +0000
-+++ lxqt-session-0.14.1.tpg/config/lxqt.conf	2020-03-09 13:01:09.245858057 +0000
-@@ -1,11 +1,14 @@
+diff -up lxqt-session-1.1.0/config/lxqt.conf.1~ lxqt-session-1.1.0/config/lxqt.conf
+--- lxqt-session-1.1.0/config/lxqt.conf.1~	2022-04-23 20:00:17.710102246 +0200
++++ lxqt-session-1.1.0/config/lxqt.conf	2022-04-23 20:02:22.265752111 +0200
+@@ -1,5 +1,5 @@
  [General]
--theme=frost
--icon_theme=oxygen
-+theme=kde-plasma
-+icon_theme=breeze
+-theme=Clearlooks
++theme=Kde-plasma
+ icon_theme=breeze
  single_click_activate=false
  tool_button_style=ToolButtonTextBesideIcon
- 
-+[Mouse]
-+cursor_theme=breeze_cursors
-+
- [Qt]
- font="Sans,11,-1,5,50,0,0,0,0,0"
- doubleClickInterval=400
--style=Fusion
-+style=Breeze
- wheelScrollLines=3
-diff -Naur lxqt-session-0.14.1/config/session.conf lxqt-session-0.14.1.tpg/config/session.conf
---- lxqt-session-0.14.1/config/session.conf	2019-02-26 01:22:39.000000000 +0000
-+++ lxqt-session-0.14.1.tpg/config/session.conf	2020-03-09 13:03:17.231868443 +0000
+diff -up lxqt-session-1.1.0/config/session.conf.1~ lxqt-session-1.1.0/config/session.conf
+--- lxqt-session-1.1.0/config/session.conf.1~	2022-04-16 15:16:20.000000000 +0200
++++ lxqt-session-1.1.0/config/session.conf	2022-04-23 20:00:17.710102246 +0200
 @@ -1,13 +1,16 @@
  [General]
  leave_confirmation=true

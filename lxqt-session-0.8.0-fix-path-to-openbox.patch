@@ -1,10 +1,10 @@
-diff -up lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp.0002~ lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp
---- lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp.0002~	2019-01-30 16:36:02.423738232 +0100
-+++ lxqt-session-0.14.0/lxqt-config-session/basicsettings.cpp	2019-01-30 16:37:13.910415266 +0100
-@@ -36,7 +36,7 @@ static const QLatin1String windowManager
- static const QLatin1String leaveConfirmationKey("leave_confirmation");
- static const QLatin1String lockBeforePowerActionsKey("lock_screen_before_power_actions");
+diff -up lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp.3~ lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp
+--- lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp.3~	2022-04-23 20:02:40.884848993 +0200
++++ lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp	2022-04-23 20:03:54.128229527 +0200
+@@ -38,7 +38,7 @@ static const QLatin1String lockBeforePow
  static const QLatin1String powerActionsAfterLockDelayKey("power_actions_after_lock_delay");
+ static const QLatin1String QtScaleKey("QT_SCALE_FACTOR");
+ static const QLatin1String GdkScaleKey("GDK_SCALE");
 -static const QLatin1String openboxValue("openbox");
 +static const QLatin1String openboxValue("/usr/bin/openbox");
  
