@@ -1,7 +1,7 @@
 %define git 0
 
 Name: lxqt-session
-Version: 1.1.0
+Version: 1.1.1
 %if %git
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
@@ -24,7 +24,8 @@ BuildRequires: cmake(Qt5Widgets)
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5X11Extras)
 BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(qt5xdg)
+BuildRequires: cmake(qt5xdg) >= 3.9.1
+BuildRequires: cmake(qtxdg-tools) >= 3.9.1
 BuildRequires: cmake(lxqt)
 BuildRequires: cmake(lxqt-build-tools)
 BuildRequires: pkgconfig(x11)
@@ -33,6 +34,7 @@ BuildRequires: pkgconfig(libudev)
 BuildRequires: pkgconfig(libprocps)
 BuildRequires: xdg-user-dirs
 Requires: xdg-utils
+Requires: qtxdg-tools
 Requires: xdg-user-dirs
 # dbus-launch is used by startlxqt
 Requires: dbus-x11
