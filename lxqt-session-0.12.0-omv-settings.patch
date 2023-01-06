@@ -4,7 +4,7 @@ diff -up lxqt-session-1.1.0/config/lxqt.conf.1~ lxqt-session-1.1.0/config/lxqt.c
 @@ -1,5 +1,5 @@
  [General]
 -theme=Clearlooks
-+theme=Kde-Plasma
++theme=KDE-Plasma
  icon_theme=breeze
  single_click_activate=false
  tool_button_style=ToolButtonTextBesideIcon
