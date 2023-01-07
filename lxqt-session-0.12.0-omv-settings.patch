@@ -14,7 +14,7 @@ diff -up lxqt-session-1.1.0/config/session.conf.1~ lxqt-session-1.1.0/config/ses
 @@ -1,13 +1,16 @@
  [General]
  leave_confirmation=true
-+window_manager=xfwm4
++window_manager=openbox
  
  [Environment]
  GTK_CSD=0
