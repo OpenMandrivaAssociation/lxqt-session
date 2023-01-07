@@ -78,10 +78,10 @@ diff -Naur lxqt-session-0.14.1/startlxqt.in lxqt-session-0.14.1.tpg/startlxqt.in
 +
 +fi
 +
-+# workaround for openbox not being start on first boot
-+if cat $BASEDIR/lxqt/session.conf | grep -w window_manager=openbox > /dev/null 2>&1; then
-+    if ! pgrep "openbox" > /dev/null 2>&1; then
-+	exec /usr/bin/openbox &
++# workaround for xfwm4 not being start on first boot
++if cat $BASEDIR/lxqt/session.conf | grep -w window_manager=xfwm4 > /dev/null 2>&1; then
++    if ! pgrep "xfwm4" > /dev/null 2>&1; then
++	exec /usr/bin/xfwm4 &
 +    fi
 +fi
 +
