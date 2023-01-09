@@ -6,7 +6,7 @@ Version: 1.2.0
 Release: 1.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 5
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -16,7 +16,7 @@ Group: Graphical desktop/KDE
 Patch0: lxqt-session-0.12.0-omv-settings.patch
 Patch1: lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
 Patch2: lxqt-session-0.8.0-fix-path-to-openbox.patch
-Patch3: lxqt-session-1.1.1-procps-ng-4.0.patch
+Patch3: https://github.com/lxqt/lxqt-session/pull/456.patch
 BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: ninja
@@ -32,7 +32,7 @@ BuildRequires: cmake(lxqt-build-tools)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(libudev)
-BuildRequires: pkgconfig(libproc-2)
+BuildRequires: pkgconfig(libproc2)
 BuildRequires: xdg-user-dirs
 Requires: xdg-utils
 Requires: qtxdg-tools
@@ -89,7 +89,7 @@ rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 %{_bindir}/lxqt-leave
 %{_bindir}/lxqt-config-session
 %{_datadir}/applications/lxqt-*.desktop
-%{_mandir}/man1/*
+%doc %{_mandir}/man1/*
 %{_datadir}/xsessions/lxqt.desktop
 %{_sysconfdir}/xdg/autostart/*
 %{_datadir}/lxqt/*.conf
