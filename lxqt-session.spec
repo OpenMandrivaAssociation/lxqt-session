@@ -6,7 +6,7 @@ Version: 1.4.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 3
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -42,8 +42,8 @@ Requires: dbus-x11
 Requires: dbus-tools
 # workaround for missing icons in desktop files on lxqt desktop
 Requires: sed
-Requires: breeze
-Requires: breeze-icons
+Requires: (breeze or plasma6-breeze-qt5)
+Requires: (breeze-icons or plasma6-breeze-icons)
 %rename razorqt-session
 %rename lxqt-common
 
