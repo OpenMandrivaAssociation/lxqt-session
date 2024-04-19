@@ -26,6 +26,7 @@ BuildRequires: cmake(qt6xdg) >= 3.9.1
 BuildRequires: cmake(qtxdg-tools) >= 4.0.0
 BuildRequires: cmake(lxqt)
 BuildRequires: cmake(lxqt2-build-tools)
+BuildRequires: cmake(LayerShellQt)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(libudev)
