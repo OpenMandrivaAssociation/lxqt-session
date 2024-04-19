@@ -59,7 +59,7 @@ Session manager for the LXQt desktop.
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^Categories=.*,&;,"
 find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
 
-%cmake_qt5 -DPULL_TRANSLATIONS=NO -DBUNDLE_XDG_UTILS=NO -G Ninja
+%cmake -DPULL_TRANSLATIONS=NO -DBUNDLE_XDG_UTILS=NO -G Ninja
 
 %build
 # Need to be in a UTF-8 locale so grep (used by the desktop file
