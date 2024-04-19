@@ -1,12 +1,12 @@
 %define git 0
 
 Name: lxqt-session
-Version: 1.4.0
+Version: 2.0.0
 %if %git
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 4
+Release: 1
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -17,17 +17,15 @@ Patch0: lxqt-session-0.12.0-omv-settings.patch
 Patch1: lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
 Patch2: lxqt-session-0.8.0-fix-path-to-openbox.patch
 BuildRequires: cmake
-BuildRequires: qmake5
 BuildRequires: ninja
-BuildRequires: cmake(KF5WindowSystem)
-BuildRequires: cmake(Qt5Widgets)
-BuildRequires: cmake(Qt5DBus)
-BuildRequires: cmake(Qt5X11Extras)
-BuildRequires: cmake(Qt5LinguistTools)
-BuildRequires: cmake(qt5xdg) >= 3.9.1
-BuildRequires: cmake(qtxdg-tools) >= 3.12.0
+BuildRequires: cmake(KF6WindowSystem)
+BuildRequires: cmake(Qt6Widgets)
+BuildRequires: cmake(Qt6DBus)
+BuildRequires: cmake(Qt6LinguistTools)
+BuildRequires: cmake(qt6xdg) >= 3.9.1
+BuildRequires: cmake(qtxdg-tools) >= 4.0.0
 BuildRequires: cmake(lxqt)
-BuildRequires: cmake(lxqt-build-tools)
+BuildRequires: cmake(lxqt2-build-tools)
 BuildRequires: pkgconfig(x11)
 BuildRequires: pkgconfig(xcb)
 BuildRequires: pkgconfig(libudev)
