@@ -23,9 +23,10 @@ diff -up lxqt-session-1.1.0/config/session.conf.1~ lxqt-session-1.1.0/config/ses
 +TERM=qterminal
  
  [Mouse]
- cursor_size=18
+-cursor_size=18
++cursor_size=24
 -cursor_theme=whiteglass
-+cursor_theme=breeze_cursors
++cursor_theme=Breeze_Light
  acc_factor=20
  acc_threshold=10
  left_handed=false
