@@ -6,7 +6,7 @@ Version: 2.0.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 3
+Release: 4
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
