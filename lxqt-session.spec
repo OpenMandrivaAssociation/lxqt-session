@@ -6,7 +6,7 @@ Version: 2.0.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 2
+Release: 3
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -16,6 +16,7 @@ Group: Graphical desktop/KDE
 Patch0: lxqt-session-0.12.0-omv-settings.patch
 Patch1: lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
 Patch2: lxqt-session-0.8.0-fix-path-to-openbox.patch
+Patch3:	lxqt-session-config.patch
 BuildRequires: cmake
 BuildRequires: ninja
 BuildRequires: cmake(KF6WindowSystem)

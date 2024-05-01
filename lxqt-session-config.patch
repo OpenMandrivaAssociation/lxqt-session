@@ -1,0 +1,18 @@
+diff -up lxqt-session-2.0.0/config/lxqt.conf.omv~ lxqt-session-2.0.0/config/lxqt.conf
+--- lxqt-session-2.0.0/config/lxqt.conf.omv~	2024-05-01 23:28:47.071452931 +0200
++++ lxqt-session-2.0.0/config/lxqt.conf	2024-05-01 23:29:37.711929814 +0200
+@@ -1,11 +1,11 @@
+ [General]
+ theme=Valendas
+ icon_theme=breeze
+-single_click_activate=false
++single_click_activate=true
+ tool_button_style=ToolButtonTextBesideIcon
+ 
+ [Qt]
+-font="Sans,11,-1,5,50,0,0,0,0,0"
++font="Noto Sans,11,-1,5,400,0,0,0,0,0"
+ doubleClickInterval=400
+-style=Fusion
++style=Breeze
+ wheelScrollLines=3
