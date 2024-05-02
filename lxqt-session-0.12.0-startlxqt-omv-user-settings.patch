@@ -24,11 +24,13 @@ diff -Naur lxqt-session-0.14.1/startlxqt.in lxqt-session-0.14.1.tpg/startlxqt.in
  if [ -z "$XDG_CONFIG_DIRS" ]; then
      export XDG_CONFIG_DIRS="@PREDEF_XDG_CONFIG_DIRS@"
  else
-@@ -95,5 +104,62 @@
+@@ -95,5 +104,64 @@
  
  export XDG_CURRENT_DESKTOP="LXQt"
  
 +# (tpg) copy default settings because LxQt cannot read them from /etc
++# FIXME this was true for 1.x, but 2.x migrated towards QSettings.
++# Let's take it out and see if it's still needed for some parts.
 +if test "x$XDG_CONFIG_HOME" = "x"
 +then
 +    BASEDIR="$HOME/.config"
@@ -36,15 +38,15 @@ diff -Naur lxqt-session-0.14.1/startlxqt.in lxqt-session-0.14.1.tpg/startlxqt.in
 +    BASEDIR="$XDG_CONFIG_HOME"
 +fi
 +
-+if [ ! -d $BASEDIR/lxqt ]; then
-+    mkdir -p $BASEDIR/lxqt
-+    cp -af /usr/share/lxqt/*.conf $BASEDIR/lxqt
-+fi
-+
-+if [ ! -d $BASEDIR/pcmanfm-qt ]; then
-+    mkdir -p $BASEDIR/pcmanfm-qt/lxqt
-+    cp -af /usr/share/pcmanfm-qt/lxqt/*.conf $BASEDIR/pcmanfm-qt/lxqt
-+fi
++#if [ ! -d $BASEDIR/lxqt ]; then
++#    mkdir -p $BASEDIR/lxqt
++#    cp -af /etc/xdg/lxqt/*.conf $BASEDIR/lxqt
++#fi
++#
++#if [ ! -d $BASEDIR/pcmanfm-qt ]; then
++#    mkdir -p $BASEDIR/pcmanfm-qt/lxqt
++#    cp -af /etc/xdg/pcmanfm-qt/lxqt/*.conf $BASEDIR/pcmanfm-qt/lxqt
++#fi
 +
 +if [ ! -e $XDG_CONFIG_HOME/lxqt.firstboot ]; then
 +#(tpg) add special icons on DESKTOP

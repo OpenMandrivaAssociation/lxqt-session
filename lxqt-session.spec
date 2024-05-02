@@ -6,7 +6,7 @@ Version: 2.0.0
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 5
+Release: 6
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -82,6 +82,9 @@ export LC_ALL=en_US.utf-8
 # (tpg) we do not have any KDM in 2015.0 or newer
 rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 
+# We get the configs from distro-release
+rm %{buildroot}%{_datadir}/lxqt/{lxqt,session}.conf
+
 %find_lang %{name} --with-qt --all-name
 
 %files -f %{name}.lang
@@ -90,8 +93,10 @@ rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 %{_bindir}/lxqt-leave
 %{_bindir}/lxqt-config-session
 %{_datadir}/applications/lxqt-*.desktop
+# This is a list of all supported window managers - let's
+# not move that to distro-release, no customization necessary
+%{_datadir}/lxqt/windowmanagers.conf
 %doc %{_mandir}/man1/*
 %{_datadir}/xsessions/lxqt.desktop
 %{_sysconfdir}/xdg/autostart/*
-%{_datadir}/lxqt/*.conf
 %dir %{_datadir}/lxqt/translations/*
