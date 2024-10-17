@@ -10,7 +10,7 @@ Release: 6
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
-URL: http://lxqt.org/
+URL: https://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
 Patch0: lxqt-session-0.12.0-omv-settings.patch
