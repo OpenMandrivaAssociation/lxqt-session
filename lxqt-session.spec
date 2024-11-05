@@ -1,12 +1,12 @@
-%define git 0
+#define git 0
 
 Name: lxqt-session
-Version: 2.0.0
-%if %git
+Version: 2.1.0
+%if 0%{?git:1}
 Release: 0.%git.1
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 6
+Release: 1
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
@@ -51,7 +51,7 @@ Requires: kf6-breeze-icons
 Session manager for the LXQt desktop.
 
 %prep
-%if %git
+%if 0%{?git:1}
 %setup -qn %{name}-%{git}
 %else
 %setup -q
@@ -96,6 +96,7 @@ rm %{buildroot}%{_datadir}/lxqt/{lxqt,session}.conf
 # This is a list of all supported window managers - let's
 # not move that to distro-release, no customization necessary
 %{_datadir}/lxqt/windowmanagers.conf
+%{_datadir}/lxqt/waylandwindowmanagers.conf
 %doc %{_mandir}/man1/*
 %{_datadir}/xsessions/lxqt.desktop
 %{_sysconfdir}/xdg/autostart/*

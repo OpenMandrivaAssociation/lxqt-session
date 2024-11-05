@@ -1,9 +1,9 @@
-diff -up lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp.3~ lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp
---- lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp.3~	2022-04-23 20:02:40.884848993 +0200
-+++ lxqt-session-1.1.0/lxqt-config-session/basicsettings.cpp	2022-04-23 20:03:54.128229527 +0200
-@@ -38,7 +38,7 @@ static const QLatin1String lockBeforePow
- static const QLatin1String powerActionsAfterLockDelayKey("power_actions_after_lock_delay");
+diff -up lxqt-session-2.1.0/lxqt-config-session/basicsettings.cpp.3~ lxqt-session-2.1.0/lxqt-config-session/basicsettings.cpp
+--- lxqt-session-2.1.0/lxqt-config-session/basicsettings.cpp.3~	2024-11-05 19:25:28.311732692 +0100
++++ lxqt-session-2.1.0/lxqt-config-session/basicsettings.cpp	2024-11-05 19:28:04.743457314 +0100
+@@ -39,7 +39,7 @@ static const QLatin1String powerActionsA
  static const QLatin1String QtScaleKey("QT_SCALE_FACTOR");
+ static const QLatin1String x11LockCommandKey("lock_command");
  static const QLatin1String GdkScaleKey("GDK_SCALE");
 -static const QLatin1String openboxValue("openbox");
 +static const QLatin1String openboxValue("/usr/bin/openbox");
