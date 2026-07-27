@@ -3,22 +3,24 @@
 Name: lxqt-session
 Version: 2.4.0
 %if 0%{?git:1}
-Release: 1.%git.1
+Release: 1.%git.2
 Source0: %{name}-%{git}.tar.xz
 %else
-Release: 1
+Release: 2
 Source0: https://github.com/lxqt/lxqt-session/releases/download/%{version}/lxqt-session-%{version}.tar.xz
 %endif
 Summary: Session manager for the LXQt desktop
 URL: https://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
-Patch0: lxqt-session-0.12.0-omv-settings.patch
-Patch1: lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
-Patch2: lxqt-session-0.8.0-fix-path-to-openbox.patch
-Patch3:	lxqt-session-config.patch
-BuildRequires: cmake
-BuildRequires: ninja
+%patchlist
+lxqt-session-0.12.0-omv-settings.patch
+lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
+lxqt-session-0.8.0-fix-path-to-openbox.patch
+lxqt-session-config.patch
+BuildSystem: cmake
+BuildOption: -DPULL_TRANSLATIONS=NO
+BuildOption: -DBUNDLE_XDG_UTILS=NO
 BuildRequires: cmake(KF6WindowSystem)
 BuildRequires: cmake(Qt6Widgets)
 BuildRequires: cmake(Qt6DBus)
@@ -50,41 +52,24 @@ Requires: kf6-breeze-icons
 %description
 Session manager for the LXQt desktop.
 
-%prep
-%if 0%{?git:1}
-%setup -qn %{name}-%{git}
-%else
-%setup -q
-%endif
-%autopatch -p1
+%prep -a
+find lxqt-leave -name "*.desktop.in" | xargs sed -i -e "s,^Categories=.*,&;,"
+find lxqt-leave -name "*.desktop.in" | xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
 
-find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^Categories=.*,&;,"
-find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;,;,g"
-
-%build
-%cmake -DPULL_TRANSLATIONS=NO -DBUNDLE_XDG_UTILS=NO -G Ninja
-# Need to be in a UTF-8 locale so grep (used by the desktop file
-# translation generator) doesn't scream about translations containing
-# "binary" (non-ascii) characters
+%build -p
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
-%ninja_build
 
-%install
-# Need to be in a UTF-8 locale so grep (used by the desktop file
-# translation generator) doesn't scream about translations containing
-# "binary" (non-ascii) characters
+%install -p
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
-%ninja_install -C build
 
+%install -a
 # (tpg) we do not have any KDM in 2015.0 or newer
 rm -rf %{buildroot}%{_datadir}/kdm/sessions/lxqt.desktop
 
 # We get the configs from distro-release
 rm %{buildroot}%{_datadir}/lxqt/{lxqt,session}.conf
-
-%find_lang %{name} --with-qt --all-name
 
 %files -f %{name}.lang
 %{_bindir}/startlxqt
