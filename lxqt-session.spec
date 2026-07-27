@@ -13,11 +13,6 @@ Summary: Session manager for the LXQt desktop
 URL: https://lxqt.org/
 License: GPL
 Group: Graphical desktop/KDE
-%patchlist
-lxqt-session-0.12.0-omv-settings.patch
-lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
-lxqt-session-0.8.0-fix-path-to-openbox.patch
-lxqt-session-config.patch
 BuildSystem: cmake
 BuildOption: -DPULL_TRANSLATIONS=NO
 BuildOption: -DBUNDLE_XDG_UTILS=NO
@@ -48,6 +43,12 @@ Requires: plasma6-breeze
 Requires: kf6-breeze-icons
 %rename razorqt-session
 %rename lxqt-common
+
+%patchlist
+lxqt-session-0.12.0-omv-settings.patch
+lxqt-session-0.12.0-startlxqt-omv-user-settings.patch
+lxqt-session-0.8.0-fix-path-to-openbox.patch
+lxqt-session-config.patch
 
 %description
 Session manager for the LXQt desktop.
