@@ -68,7 +68,7 @@ find lxqt-leave -name "*.desktop.in" |xargs sed -i -e "s,^OnlyShowIn=.*,&;,;s,;;
 # "binary" (non-ascii) characters
 export LANG=en_US.utf-8
 export LC_ALL=en_US.utf-8
-%ninja -C build
+%ninja_build
 
 %install
 # Need to be in a UTF-8 locale so grep (used by the desktop file
